@@ -11,30 +11,7 @@ class HomePage extends StatelessWidget {
 
     return Scaffold(
       appBar: AppBar(title: Text('iaChat')),
-      drawer: _buildDrawer(),
       body: _buildBody(provider),
-    );
-  }
-
-  Widget _buildDrawer() {
-    return Drawer(
-      child: ListView(
-        padding: EdgeInsets.zero,
-        children: [
-          DrawerHeader(
-            decoration: BoxDecoration(color: Colors.blue),
-            child: Text('Menu', style: TextStyle(color: Colors.white, fontSize: 24)),
-          ),
-          ListTile(
-            title: Text('Opção 1'),
-            onTap: () {},
-          ),
-          ListTile(
-            title: Text('Opção 2'),
-            onTap: () {},
-          ),
-        ],
-      ),
     );
   }
 
