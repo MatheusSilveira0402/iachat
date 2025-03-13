@@ -1,15 +1,19 @@
 import 'package:flutter/material.dart';
-import 'package:ia_chat/provider/home_provider.dart';
-import 'package:ia_chat/screens/home_page.dart';
+import 'package:ia_chat/provider/chat_provider.dart';
+import 'package:ia_chat/repository/chat_repository.dart';
+import 'package:ia_chat/screens/home_screen_page.dart';
+import 'package:ia_chat/sevice/chat_service.dart';
 import 'package:provider/provider.dart';
 
 void main() {
   runApp(
     MultiProvider(
       providers: [
-        ChangeNotifierProvider(create: (_) => HomeProvider()),
+        ChangeNotifierProvider(
+          create: (context) => ChatProvider(ChatService(ChatRepository())),
+        ),
       ],
-      child: MyApp(),
+      child: const MyApp(),
     ),
   );
 }
@@ -22,8 +26,10 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'iaChat',
-      theme: ThemeData(primarySwatch: Colors.blue),
-      home: HomePage(),
+      theme: ThemeData(
+        primarySwatch: Colors.blue,
+      ),
+      home: const HomePage(),
     );
   }
 }
