@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:ia_chat/sevice/chat_service.dart';
 
-
 class ChatProvider with ChangeNotifier {
   final ChatService _chatService;
   ChatProvider(this._chatService);
@@ -30,5 +29,10 @@ class ChatProvider with ChangeNotifier {
     Future.delayed(Duration(milliseconds: 300), () {
       scrollController.jumpTo(scrollController.position.maxScrollExtent);
     });
+  }
+
+  void clearChat() {
+    messages.clear();
+    notifyListeners();
   }
 }

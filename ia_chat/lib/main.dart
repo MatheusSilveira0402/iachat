@@ -3,6 +3,7 @@ import 'package:ia_chat/provider/chat_provider.dart';
 import 'package:ia_chat/repository/chat_repository.dart';
 import 'package:ia_chat/screens/home_screen_page.dart';
 import 'package:ia_chat/sevice/chat_service.dart';
+import 'package:ia_chat/ui/theme';
 import 'package:provider/provider.dart';
 
 void main() {
@@ -26,9 +27,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'iaChat',
-      theme: ThemeData(
-        primarySwatch: Colors.blue,
-      ),
+      theme: chatGptTheme,
       home: const HomePage(),
     );
   }

@@ -1,0 +1,34 @@
+import 'package:flutter/material.dart';
+
+final ThemeData chatGptTheme = ThemeData(
+  brightness: Brightness.dark,
+  primaryColor: const Color(0xFF10A37F), // Verde ChatGPT
+  scaffoldBackgroundColor: const Color(0xFF202123), // Fundo escuro
+  appBarTheme: const AppBarTheme(
+    backgroundColor: Color(0xFF343541), // Cor do AppBar
+    foregroundColor: Colors.white, // Cor do texto no AppBar
+  ),
+  textTheme: const TextTheme(
+    bodyLarge: TextStyle(color: Colors.white, fontSize: 16),
+    bodyMedium: TextStyle(color: Colors.white70, fontSize: 14),
+  ),
+  inputDecorationTheme: InputDecorationTheme(
+    filled: true,
+    fillColor: const Color(0xFF40414F), // Fundo do campo de entrada
+    border: OutlineInputBorder(
+      borderRadius: BorderRadius.circular(8),
+      borderSide: const BorderSide(color: Colors.grey),
+    ),
+    focusedBorder: OutlineInputBorder(
+      borderRadius: BorderRadius.circular(8),
+      borderSide: const BorderSide(color: Color(0xFF10A37F)),
+    ),
+  ),
+  iconTheme: const IconThemeData(
+    color: Color(0xFF10A37F), // Ícones verdes
+  ),
+  buttonTheme: ButtonThemeData(
+    shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(8)),
+    buttonColor: const Color(0xFF10A37F),
+  ),
+);
