@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_markdown/flutter_markdown.dart';
 import 'package:ia_chat/provider/chat_provider.dart';
 import 'package:provider/provider.dart';
 
@@ -31,11 +32,8 @@ class HomePage extends StatelessWidget {
                           color: msg['role'] == 'user' ? Colors.blue : Colors.grey[300],
                           borderRadius: BorderRadius.circular(8),
                         ),
-                        child: Text(
-                          msg['content']!,
-                          style: TextStyle(
-                            color: msg['role'] == 'user' ? Colors.white : Colors.black87,
-                          ),
+                        child: MarkdownBody(
+                          data: msg['content']!,
                         ),
                       ),
                     );
