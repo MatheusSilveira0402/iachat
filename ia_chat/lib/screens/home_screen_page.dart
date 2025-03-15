@@ -85,7 +85,7 @@ class HomePage extends StatelessWidget {
               child: Container(
                 padding: const EdgeInsets.all(14),
                 decoration: BoxDecoration(
-                  color: isUser ? Colors.blueGrey : const Color(0xFF0D1117),
+                  color: isUser ? Colors.black87 : const Color(0xFF0D1117),
                   borderRadius: BorderRadius.circular(12),
                 ),
                 child: MarkdownBody(
