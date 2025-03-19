@@ -7,6 +7,8 @@ class ChatProvider with ChangeNotifier {
 
   final TextEditingController textController = TextEditingController();
   final ScrollController scrollController = ScrollController();
+  bool isTyping = false;
+
 
   List<Map<String, String>> messages = [];
 
@@ -16,11 +18,13 @@ class ChatProvider with ChangeNotifier {
     String text = textController.text.trim();
     textController.clear();
     messages.add({"role": "user", "content": text});
+    isTyping = true;
     notifyListeners();
     _scrollToBottom();
 
     final response = await _chatService.getChatResponse(messages);
     messages.add({"role": "assistant", "content": response});
+    isTyping = false;
     notifyListeners();
     _scrollToBottom();
   }

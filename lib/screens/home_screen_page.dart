@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_markdown/flutter_markdown.dart';
 import 'package:ia_chat/provider/chat_provider.dart';
+import 'package:ia_chat/ui/typing_dots.dart';
 import 'package:provider/provider.dart';
 
 class HomePage extends StatelessWidget {
@@ -36,6 +37,7 @@ class HomePage extends StatelessWidget {
               ),
             ),
           ),
+          if (provider.isTyping) _buildTypingIndicator(),
           _buildTextInput(provider),
         ],
       ),
@@ -144,6 +146,25 @@ class HomePage extends StatelessWidget {
           IconButton(
             icon: const Icon(Icons.send, color: Colors.grey),
             onPressed: provider.sendMessage,
+          ),
+        ],
+      ),
+    );
+  }
+
+  Widget _buildTypingIndicator() {
+    return Padding(
+      padding: const EdgeInsets.symmetric(vertical: 8),
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.start,
+        children: [
+          Container(
+            padding: const EdgeInsets.all(12),
+            decoration: BoxDecoration(
+              color: const Color(0xFF0D1117),
+              borderRadius: BorderRadius.circular(12),
+            ),
+            child: const TypingDots(), // 👈 Widget animado
           ),
         ],
       ),
